@@ -8,7 +8,7 @@ from pathlib import Path
 
 DEFAULT_ARCHIVE = r"D:\jvdata"
 DEFAULT_TEMP_DIR = r"C:\JVLinkTemp"
-APP_DIR_NAME = "jvlink-raw-fetcher"
+APP_DIR_NAME = "jv-link-raw-data-fetcher"
 
 ENV_CONFIG_PATH = "JVLINK_RAW_CONFIG_PATH"
 ENV_ARCHIVE_DIR = "JVLINK_RAW_ARCHIVE_DIR"
@@ -89,4 +89,3 @@ def effective_log_level(cli_value: str | None, config_data: dict) -> str:
 def _read_json(path: Path) -> dict:
     with open(path, "r", encoding="utf-8") as fh:
         return json.load(fh)
-

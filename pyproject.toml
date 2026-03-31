@@ -3,9 +3,9 @@ requires = ["setuptools>=69"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "jvlink-raw-fetcher"
+name = "jv-link-raw-data-fetcher"
 version = "0.1.0"
-description = "JV-Link raw data downloader and verifier"
+description = "JV-Link Raw Data Fetcher"
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
@@ -22,10 +22,10 @@ dev = [
 ]
 
 [project.scripts]
-jvlink-raw-fetcher = "jvlink_raw_fetcher.cli:main"
+jv-link-raw-data-fetcher = "jv_link_raw_data_fetcher.cli:main"
 
 [tool.setuptools]
-packages = ["jvlink_raw_fetcher"]
+packages = ["jv_link_raw_data_fetcher"]
 py-modules = [
   "archive_store",
   "config",
@@ -38,4 +38,3 @@ py-modules = [
 
 [tool.ruff]
 line-length = 100
-

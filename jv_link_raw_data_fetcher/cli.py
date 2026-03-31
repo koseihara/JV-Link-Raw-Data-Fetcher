@@ -12,7 +12,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from archive_store import DataspecArchive
 from config import SETUP_DATASPECS, SETUP_FROM_TIME
 from job_runner import JobRunner
-from jvlink_raw_fetcher.app_config import (
+from jv_link_raw_data_fetcher.app_config import (
     DEFAULT_ARCHIVE,
     DEFAULT_TEMP_DIR,
     ENV_ARCHIVE_DIR,
@@ -21,11 +21,11 @@ from jvlink_raw_fetcher.app_config import (
     load_user_config,
     resolve_setting,
 )
-from jvlink_raw_fetcher.platform import ensure_32bit_runtime, run_doctor
+from jv_link_raw_data_fetcher.platform import ensure_32bit_runtime, run_doctor
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="JV-Link raw data downloader")
+    parser = argparse.ArgumentParser(description="JV-Link Raw Data Fetcher")
     parser.add_argument("-v", "--verbose", action="store_true")
     parser.add_argument("--log-file", default=None)
     parser.add_argument("--log-level", default=None)
@@ -260,4 +260,3 @@ def _archive_dir(args, config_data: dict) -> str:
 
 def _temp_dir(args, config_data: dict) -> str:
     return resolve_setting(args.temp_dir, ENV_TEMP_DIR, config_data.get("jvlink_temp_dir"), DEFAULT_TEMP_DIR)
-

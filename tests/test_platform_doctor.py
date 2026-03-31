@@ -7,7 +7,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from jvlink_raw_fetcher.platform import run_doctor
+from jv_link_raw_data_fetcher.platform import run_doctor
 
 
 class DoctorTests(unittest.TestCase):

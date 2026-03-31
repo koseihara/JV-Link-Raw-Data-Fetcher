@@ -1,5 +1,4 @@
-"""JV-Link raw data downloader package."""
+"""JV-Link Raw Data Fetcher package."""
 
 __all__ = ["__version__"]
 __version__ = "0.1.0"
-

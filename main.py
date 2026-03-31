@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Backward-compatible shim for the packaged CLI."""
 
-from jvlink_raw_fetcher.cli import main
+from jv_link_raw_data_fetcher.cli import main
 
 
 if __name__ == "__main__":

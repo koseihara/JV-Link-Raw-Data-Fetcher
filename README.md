@@ -1,4 +1,4 @@
-# JV-Link Raw Data Downloader
+# JV-Link Raw Data Fetcher
 
 JRA-VAN JV-Link から raw データを取得し、そのまま cp932 の `.jvdat` として保存する Windows 向け CLI です。
 
@@ -18,11 +18,9 @@ PostgreSQL への投入責務も持ちません。
 
 現時点の正式実装は Python です。
 
-- package 名: `jvlink-raw-fetcher`
-- CLI 名: `jvlink-raw-fetcher`
+- package 名: `jv-link-raw-data-fetcher`
+- CLI 名: `jv-link-raw-data-fetcher`
 - 互換 shim: `python main.py ...`
-
-`csharp-poc/` には比較用の .NET x86 PoC を置いていますが、本番 parity 実装ではありません。
 
 ## 必要環境
 
@@ -62,7 +60,7 @@ pip install pywin32
 
 設定ファイルは user scope に保存されます。
 
-- 既定: `%LOCALAPPDATA%\jvlink-raw-fetcher\config.json`
+- 既定: `%LOCALAPPDATA%\jv-link-raw-data-fetcher\config.json`
 - 旧 `.jvconfig.json` がある場合は初回実行時に移行します
 
 既定値:
@@ -91,8 +89,8 @@ pip install pywin32
 利用開始前の環境診断を行います。
 
 ```powershell
-jvlink-raw-fetcher doctor
-jvlink-raw-fetcher doctor --archive D:\jvdata --temp-dir C:\JVLinkTemp
+jv-link-raw-data-fetcher doctor
+jv-link-raw-data-fetcher doctor --archive D:\jvdata --temp-dir C:\JVLinkTemp
 ```
 
 診断項目:
@@ -109,7 +107,7 @@ jvlink-raw-fetcher doctor --archive D:\jvdata --temp-dir C:\JVLinkTemp
 JV-Link の設定ダイアログを開きます。
 
 ```powershell
-jvlink-raw-fetcher jvlink-config
+jv-link-raw-data-fetcher jvlink-config
 ```
 
 旧コマンド `config` も alias として残しています。
@@ -119,8 +117,8 @@ jvlink-raw-fetcher jvlink-config
 dataspec ごとの状態を表示します。
 
 ```powershell
-jvlink-raw-fetcher status
-jvlink-raw-fetcher status --archive D:\jvdata
+jv-link-raw-data-fetcher status
+jv-link-raw-data-fetcher status --archive D:\jvdata
 ```
 
 ### `setup`
@@ -128,10 +126,10 @@ jvlink-raw-fetcher status --archive D:\jvdata
 JV-Link からセットアップ取得を行います。32bit Python が必要です。
 
 ```powershell
-jvlink-raw-fetcher setup RACE
-jvlink-raw-fetcher setup RACE DIFF BLOD
-jvlink-raw-fetcher setup --all
-jvlink-raw-fetcher setup RACE --from 20200101
+jv-link-raw-data-fetcher setup RACE
+jv-link-raw-data-fetcher setup RACE DIFF BLOD
+jv-link-raw-data-fetcher setup --all
+jv-link-raw-data-fetcher setup RACE --from 20200101
 ```
 
 ### `update`
@@ -139,8 +137,8 @@ jvlink-raw-fetcher setup RACE --from 20200101
 公開済み `current` の `last_successful_timestamp` から差分更新します。32bit Python が必要です。
 
 ```powershell
-jvlink-raw-fetcher update
-jvlink-raw-fetcher update RACE
+jv-link-raw-data-fetcher update
+jv-link-raw-data-fetcher update RACE
 ```
 
 ### `verify`
@@ -148,8 +146,8 @@ jvlink-raw-fetcher update RACE
 アーカイブの整合性検査を行います。
 
 ```powershell
-jvlink-raw-fetcher verify RACE --archive D:\jvdata
-jvlink-raw-fetcher verify --all --archive D:\jvdata
+jv-link-raw-data-fetcher verify RACE --archive D:\jvdata
+jv-link-raw-data-fetcher verify --all --archive D:\jvdata
 ```
 
 ### `refresh-view`
@@ -157,8 +155,8 @@ jvlink-raw-fetcher verify --all --archive D:\jvdata
 人間向けの `view/current` と `view/previous` を再生成します。
 
 ```powershell
-jvlink-raw-fetcher refresh-view RACE --archive D:\jvdata
-jvlink-raw-fetcher refresh-view --all --archive D:\jvdata
+jv-link-raw-data-fetcher refresh-view RACE --archive D:\jvdata
+jv-link-raw-data-fetcher refresh-view --all --archive D:\jvdata
 ```
 
 ## ディレクトリ構成
@@ -222,7 +220,6 @@ D:\jvdata\
 ## ドキュメント
 
 - [現状アーキテクチャ整理](docs/current-architecture.md)
-- [Python と C# の比較メモ](docs/python-vs-csharp-comparison.md)
 
 ## トラブルシュート
 
